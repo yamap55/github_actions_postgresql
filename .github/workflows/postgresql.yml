@@ -12,7 +12,7 @@ jobs:
           docker build -t postgresql_i .github/workflows
           docker run -d --name postgresql_t -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgresql_i
       - name: install dockerize
-        run: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+        run: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
         env:
           DOCKERIZE_VERSION: v0.6.1
       - name: Wait for db
