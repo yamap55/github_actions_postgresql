@@ -3,7 +3,7 @@ name: postgresql_services
 on: [push]
 
 jobs:
-  postgresql:
+  postgresql_services:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -18,5 +18,7 @@ jobs:
         ports:
           - 5432:5432
     steps:
+      - name: sleep
+        run: sleep 10
       - name: show locale
         run: docker run --rm postgres:11.5 psql -h localhost  -U postgres -c "SHOW LC_COLLATE;"
